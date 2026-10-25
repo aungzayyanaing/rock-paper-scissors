@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rock Paper Scissors — Realistic Showdown</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="arena">
+  <header>
+    <h1>Rock Paper Scissors</h1>
+    <p class="subtitle">Best of 5. The hands shake, then they show. No mercy.</p>
+  </header>
+
+  <section class="scoreboard" aria-label="Score">
+    <div class="score-box">
+      <span class="label">You</span>
+      <span class="score" id="player-score">0</span>
+    </div>
+    <div class="round">Round <span id="round">1</span> / 5</div>
+    <div class="score-box">
+      <span class="label">Computer</span>
+      <span class="score" id="computer-score">0</span>
+    </div>
+  </section>
+
+  <section class="stage" aria-label="Hands">
+    <div class="hand-card">
+      <div class="hand" id="player-hand">✊</div>
+      <p>You</p>
+    </div>
+    <div class="vs">VS</div>
+    <div class="hand-card">
+      <div class="hand" id="computer-hand">✊</div>
+      <p>Computer</p>
+    </div>
+  </section>
+
+  <p class="result" id="result">Pick your weapon below.</p>
+
+  <section class="choices" aria-label="Choose rock, paper or scissors">
+    <button class="choice" data-choice="rock" aria-label="Rock">✊<span>Rock</span></button>
+    <button class="choice" data-choice="paper" aria-label="Paper">✋<span>Paper</span></button>
+    <button class="choice" data-choice="scissors" aria-label="Scissors">✌️<span>Scissors</span></button>
+  </section>
+
+  <section class="history">
+    <h2>Round history</h2>
+    <ol id="history"></ol>
+  </section>
+
+  <button class="reset" id="reset">Play again</button>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
