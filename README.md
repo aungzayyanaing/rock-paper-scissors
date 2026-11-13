@@ -1,6 +1,6 @@
 # Rock Paper Scissors (JavaScript)
 
-A single-player Rock Paper Scissors game in plain HTML, CSS, and JavaScript. You play against the computer in a best-of-5 match. No build step, no packages, no installation, and no server is required to play — just open the page in a browser.
+A single-player Rock Paper Scissors game in plain HTML, CSS, and JavaScript. You play against the computer in a 5-round match: most wins takes the match, and draws count as a round. No build step, no packages, no installation, and no server is required to play — just open the page in a browser.
 
 ## Play
 
@@ -15,7 +15,7 @@ python3 -m http.server 8000
 
 - Click Rock (✊), Paper (✋), or Scissors (✌️). The computer picks one of the three at random.
 - Rock beats Scissors, Paper beats Rock, and Scissors beats Paper. Matching hands are a draw.
-- Best of 5 rounds, with a live scoreboard showing your score, the computer's score, and the current round (Round 1 / 5, and so on).
+- 5 rounds, most wins takes the match. Draws count as a round. A live scoreboard shows your score, the computer's score, and the current round (Round 1 / 5, and so on).
 - Both hands shake three times, then reveal at the same moment, just like a real shoot. The choice buttons are disabled while the hands are shaking.
 - The winning hand glows gold. The match result — win, lose, or tie overall — shows after round 5.
 - Each round is added to a round history list, showing what you and the computer played and the result.
