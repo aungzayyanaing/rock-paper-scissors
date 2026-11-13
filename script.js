@@ -1,6 +1,5 @@
 // Rock Paper Scissors: best of 5, with a realistic shake-then-show reveal.
 // Open index.html in a browser. No build step, no packages.
-
 const HANDS = {
   rock: "✊",
   paper: "✋",
@@ -9,12 +8,11 @@ const HANDS = {
 const BEATS = { rock: "scissors", paper: "rock", scissors: "paper" };
 const CHOICES = Object.keys(HANDS);
 const TOTAL_ROUNDS = 5;
-
 let playerScore = 0;
 let computerScore = 0;
 let round = 1;
 let playing = false;
-
+let gameOver = false;
 const playerHand = document.getElementById("player-hand");
 const computerHand = document.getElementById("computer-hand");
 const playerScoreEl = document.getElementById("player-score");
@@ -34,7 +32,7 @@ function outcome(player, computer) {
 }
 
 function play(player) {
-  if (playing || round > TOTAL_ROUNDS) return;
+  if (playing || gameOver) return;
   playing = true;
   setButtons(true);
   playerHand.textContent = "✊";
@@ -45,7 +43,6 @@ function play(player) {
   computerHand.classList.add("shaking");
   resultEl.textContent = "Rock… paper… scissors…";
   resultEl.className = "result";
-
   // The shake animation runs 3 x 0.45s, then both hands reveal.
   setTimeout(() => {
     const computer = CHOICES[Math.floor(Math.random() * CHOICES.length)];
@@ -83,12 +80,13 @@ function play(player) {
           : "Computer wins the match!";
       resultEl.textContent += ` ${final}`;
       roundEl.textContent = TOTAL_ROUNDS;
+      gameOver = true;
     } else {
       round += 1;
       roundEl.textContent = round;
     }
     playing = false;
-    setButtons(round > TOTAL_ROUNDS);
+    setButtons(gameOver);
   }, 1400);
 }
 
@@ -97,6 +95,7 @@ function reset() {
   computerScore = 0;
   round = 1;
   playing = false;
+  gameOver = false;
   playerHand.textContent = "✊";
   computerHand.textContent = "✊";
   playerHand.classList.remove("winner", "shaking");
