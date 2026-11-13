@@ -1,5 +1,6 @@
 // Rock Paper Scissors: best of 5, with a realistic shake-then-show reveal.
 // Open index.html in a browser. No build step, no packages.
+
 const HANDS = {
   rock: "✊",
   paper: "✋",
@@ -8,11 +9,13 @@ const HANDS = {
 const BEATS = { rock: "scissors", paper: "rock", scissors: "paper" };
 const CHOICES = Object.keys(HANDS);
 const TOTAL_ROUNDS = 5;
+
 let playerScore = 0;
 let computerScore = 0;
 let round = 1;
 let playing = false;
 let gameOver = false;
+
 const playerHand = document.getElementById("player-hand");
 const computerHand = document.getElementById("computer-hand");
 const playerScoreEl = document.getElementById("player-score");
@@ -43,6 +46,7 @@ function play(player) {
   computerHand.classList.add("shaking");
   resultEl.textContent = "Rock… paper… scissors…";
   resultEl.className = "result";
+
   // The shake animation runs 3 x 0.45s, then both hands reveal.
   setTimeout(() => {
     const computer = CHOICES[Math.floor(Math.random() * CHOICES.length)];
