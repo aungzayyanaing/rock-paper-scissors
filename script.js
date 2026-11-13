@@ -14,6 +14,7 @@ let playerScore = 0;
 let computerScore = 0;
 let round = 1;
 let playing = false;
+let gameOver = false;
 
 const playerHand = document.getElementById("player-hand");
 const computerHand = document.getElementById("computer-hand");
@@ -34,7 +35,7 @@ function outcome(player, computer) {
 }
 
 function play(player) {
-  if (playing || round > TOTAL_ROUNDS) return;
+  if (playing || gameOver) return;
   playing = true;
   setButtons(true);
   playerHand.textContent = "✊";
@@ -83,12 +84,13 @@ function play(player) {
           : "Computer wins the match!";
       resultEl.textContent += ` ${final}`;
       roundEl.textContent = TOTAL_ROUNDS;
+      gameOver = true;
     } else {
       round += 1;
       roundEl.textContent = round;
     }
     playing = false;
-    setButtons(round > TOTAL_ROUNDS);
+    setButtons(gameOver);
   }, 1400);
 }
 
@@ -97,6 +99,7 @@ function reset() {
   computerScore = 0;
   round = 1;
   playing = false;
+  gameOver = false;
   playerHand.textContent = "✊";
   computerHand.textContent = "✊";
   playerHand.classList.remove("winner", "shaking");
