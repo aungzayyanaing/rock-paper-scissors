@@ -122,4 +122,4 @@ function reset() {
 buttons.forEach((button) => {
   button.addEventListener("click", () => play(button.dataset.choice));
 });
- document.getElementById("reset").addEventListener("click", reset);
+document.getElementById("reset").addEventListener("click", reset);
