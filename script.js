@@ -15,6 +15,7 @@ let computerScore = 0;
 let round = 1;
 let playing = false;
 let gameOver = false;
+let revealTimer = null;
 
 const playerHand = document.getElementById("player-hand");
 const computerHand = document.getElementById("computer-hand");
@@ -48,7 +49,7 @@ function play(player) {
   resultEl.className = "result";
 
   // The shake animation runs 3 x 0.45s, then both hands reveal.
-  setTimeout(() => {
+  revealTimer = setTimeout(() => {
     const computer = CHOICES[Math.floor(Math.random() * CHOICES.length)];
     playerHand.classList.remove("shaking");
     computerHand.classList.remove("shaking");
@@ -89,12 +90,17 @@ function play(player) {
       round += 1;
       roundEl.textContent = round;
     }
+    revealTimer = null;
     playing = false;
     setButtons(gameOver);
   }, 1400);
 }
 
 function reset() {
+  if (revealTimer !== null) {
+    clearTimeout(revealTimer);
+    revealTimer = null;
+  }
   playerScore = 0;
   computerScore = 0;
   round = 1;
