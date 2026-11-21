@@ -1,4 +1,4 @@
-// Rock Paper Scissors: best of 5, with a realistic shake-then-show reveal.
+// Rock Paper Scissors: 5 rounds, most wins takes the match, with a realistic shake-then-show reveal.
 // Open index.html in a browser. No build step, no packages.
 
 const HANDS = {
